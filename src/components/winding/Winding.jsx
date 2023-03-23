@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReportIssue from "../reportissue/ReportIssue";
+import "./Winding.scss";
 const Winding = () => {
   const [isHide, setHide] = useState(false);
   const handleReportIssueBtn = (e) => {
@@ -7,61 +8,61 @@ const Winding = () => {
     setHide(!isHide);
   };
   return (
-    <div className="center">
-      <form className="user-form">
+    <div className="winding-form">
+      <form>
+        <h1>Winding/Creeling</h1>
+
         <div>
-          <h1>Winding/Creeling</h1>
+          <label>Yarn received : </label>
 
-          <div className="field">
-            <label>Yarn received : </label>
+          <input type="radio" id="yes" name="yarnreceived" />
 
-            <input type="radio" id="yes" name="yarnreceived" />
+          <label htmlFor="yes">Yes</label>
 
-            <label htmlFor="yes">Yes</label>
+          <input type="radio" id="no" name="yarnreceived" />
 
-            <input type="radio" id="no" name="yarnreceived" />
-
-            <label htmlFor="no">No</label>
-          </div>
-
-          <div className=" field">
-            <label>No. of Cones: </label>
-
-            <input type="text" />
-          </div>
-
-          <div className="field">
-            <label>Size of Cones : </label>
-
-            <input type="text" />
-          </div>
-
-          <div className="field">
-            <label>No.of Doffs : </label>
-
-            <input type="text" />
-          </div>
-
-          <div className="field">
-            <label>Final weight of Cones : </label>
-
-            <input type="text" />
-          </div>
-
-          <div className="field">
-            <label>Waste collection weight : </label>
-
-            <input type="dropdown" />
-          </div>
-
-          <div className="field">
-            <label>Package defects if any : </label>
-
-            <input type="text" />
-          </div>
-
-          <button>Report</button>
+          <label htmlFor="no">No</label>
         </div>
+
+        <div>
+          <label>No. of Cones: </label>
+
+          <input type="text" />
+        </div>
+
+        <div>
+          <label>Size of Cones : </label>
+
+          <input type="text" />
+        </div>
+
+        <div>
+          <label>No.of Doffs : </label>
+
+          <input type="text" />
+        </div>
+
+        <div>
+          <label>Final weight of Cones : </label>
+
+          <input type="text" />
+        </div>
+
+        <div>
+          <label>Waste collection weight : </label>
+
+          <input type="dropdown" />
+        </div>
+
+        <div>
+          <label>Package defects if any : </label>
+
+          <input type="text" />
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
+
         <div>
           <button onClick={handleReportIssueBtn}>Report an Issue</button>
         </div>

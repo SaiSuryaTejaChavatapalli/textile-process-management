@@ -3,7 +3,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { getDatabase, ref, set } from "firebase/database";
-import "./Register.scss";
 const RegisterForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -44,10 +43,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleRegister} className="register">
-      <h1>Register</h1>
-      {error && <div>{error}</div>}
-      <div>
+    <div className="center">
+      <form onSubmit={handleRegister} className="">
+        <h1>Register</h1>
+        {error && <span>{error}</span>}
         <div>
           <label>Register as Admin?:</label>
           <div>
@@ -108,7 +107,6 @@ const RegisterForm = () => {
             required
           />
         </div>
-
         <div>
           <label htmlFor="department">
             {isAdmin === "yes" ? "Admin" : "Worker"} Department:
@@ -131,19 +129,20 @@ const RegisterForm = () => {
             <option value="packaging">Packaging</option>
           </select>
         </div>
-      </div>
-      <div>
-        <button type="submit">Register</button>
-        <button onClick={() => navigate("/login")}>Login?</button>
-      </div>
-      <div>
-        {userCreated && (
-          <span style={{ color: "green", fontWeight: "bold" }}>
-            USER CREATED SUCCESSFULLY
-          </span>
-        )}
-      </div>
-    </form>
+
+        <div>
+          <button type="submit">Register</button>
+          <button onClick={() => navigate("/login")}>Login?</button>
+        </div>
+        <div>
+          {userCreated && (
+            <span style={{ color: "green", fontWeight: "bold" }}>
+              USER CREATED SUCCESSFULLY
+            </span>
+          )}
+        </div>
+      </form>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReportIssue from "../reportissue/ReportIssue";
+import "./Repairing.scss";
 const Repairing = () => {
   const [isHide, setHide] = useState(false);
   const handleReportIssueBtn = (e) => {
@@ -7,7 +8,7 @@ const Repairing = () => {
     setHide(!isHide);
   };
   return (
-    <div className="center">
+    <div className="repairing-form">
       <form className="user-form">
         <h1>Repairing Details</h1>
 
@@ -34,8 +35,10 @@ const Repairing = () => {
 
           <input type="text" id="worker" name="worker" />
         </div>
+        <div>
+          <button>Submit</button>
+        </div>
 
-        <button>Report</button>
         <div>
           <button onClick={handleReportIssueBtn}>Report an Issue</button>
         </div>

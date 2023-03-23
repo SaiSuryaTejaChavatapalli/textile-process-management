@@ -3,7 +3,6 @@ import { getDatabase, ref, onValue, remove } from "firebase/database";
 import "./AdminGetIssues.scss";
 function AdminGetIssues() {
   const [workers, setWorkers] = useState([]);
-  const [isDisplayed, setIsDisplayed] = useState(true);
   const handleClick = () => {
     const database = getDatabase();
     const workersRef = ref(database, "workersIssues");
@@ -29,9 +28,11 @@ function AdminGetIssues() {
 
   return (
     <div className="admin-get-issues">
-      <button onClick={handleClick}>Get Workers Issues</button>
-      <button onClick={() => setIsDisplayed(!isDisplayed)}>View/Hide</button>
-      <ul className={isDisplayed ? "" : "hide-get-issues"}>
+      <div>
+        <button onClick={handleClick}>Issues</button>
+      </div>
+
+      <ul>
         {workers.map((worker) => (
           <li key={worker.key}>
             <span>

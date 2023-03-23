@@ -1,0 +1,25 @@
+div{
+    nav{
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            //align-items: left;
+            li{
+                
+                list-style-type: none;
+                margin-right: 5px;
+                border-radius: 5px;
+                padding: 10px;
+                text-align: center;
+                background-color: white;
+            
+                a{
+                    padding: 10px;
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}

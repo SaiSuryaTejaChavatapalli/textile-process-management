@@ -1,0 +1,23 @@
+.adminpage {
+  display: flex;
+  background-image: url("../../images/background.png");
+  div {
+    nav {
+      padding-top: 10px;
+      ul {
+        li {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .layout {
+    background-color: rgba(36, 41, 41, 0.552);
+    padding: 16px;
+    height: 100vh;
+    flex: 1;
+  }
+  .admincompcontainer {
+    flex: 5;
+  }
+}

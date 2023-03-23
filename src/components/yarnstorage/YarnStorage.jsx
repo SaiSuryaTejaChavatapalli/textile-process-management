@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReportIssue from "../reportissue/ReportIssue";
+import "./YarnStorage.scss";
 const YarnStorage = () => {
   const [isHide, setHide] = useState(false);
   const handleReportIssueBtn = (e) => {
@@ -7,30 +8,22 @@ const YarnStorage = () => {
     setHide(!isHide);
   };
   return (
-    <div className="center">
-      <form className="user-form">
+    <div className="yarnstorage-form">
+      <form>
         <h1>Yarn Storage</h1>
-
-        <div className="field">
+        <div>
           <label>Yarn Received: </label>
-
           <input type="radio" id="yes" name="Sticker applied" />
-
           <label htmlFor="yes">Yes</label>
-
           <input type="radio" id="no" name="Sticker applied" />
-
           <label htmlFor="no">No</label>
         </div>
-
         <div>
-          <div className="field">
-            <label>Weight of Yarn: </label>
-
-            <input type="text" />
-          </div>
-
-          <button>Report</button>
+          <label>Weight of Yarn: </label>
+          <input type="text" />
+        </div>
+        <div>
+          <button>Submit</button>
         </div>
         <div>
           <button onClick={handleReportIssueBtn}>Report an Issue</button>

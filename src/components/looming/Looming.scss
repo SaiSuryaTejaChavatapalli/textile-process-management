@@ -1,7 +1,12 @@
-.looming {
+.looming-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
   background-image: url("../../images/background.png");
   background-size: cover;
+  height: 100%;
+  form {
+    margin-bottom: 10px;
+  }
 }

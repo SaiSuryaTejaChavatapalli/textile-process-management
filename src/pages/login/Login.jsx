@@ -21,30 +21,60 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        const currentUser = userCredential.user;
+        dispatch({ type: "LOGIN_SUCCESS", payload: currentUser });
         // ...
-        console.log(user.email);
-        // navigate("/home");
+        console.log(currentUser.email);
+
         // Create a reference to "users"
         const usersRef = ref(db, "users");
-
         // Read data from "users"
         onValue(usersRef, (snapshot) => {
           const data = snapshot.val();
           let demo = Object.entries(data);
           const filteredList = demo.filter(
-            (item) => item[1].email === user.email
+            (item) => item[1].email === currentUser.email
           );
           const AdminOrNot = filteredList[0][1].isAdmin;
-          AdminOrNot === "yes"
-            ? navigate("/adminpage")
-            : navigate("/workerpage");
+          // AdminOrNot === "yes"
+          //   ? navigate("/adminpage")
+          //   : navigate("/workerpage");
+          if (AdminOrNot === "yes") {
+            navigate("/adminpage");
+          } else {
+            switch (filteredList[0][1].department) {
+              case "yarnstorage":
+                navigate("/yarnstorage");
+                break;
+              case "winding":
+                navigate("/winding");
+                break;
+              case "warping":
+                navigate("/warping");
+                break;
+              case "looming":
+                navigate("/looming");
+                break;
+              case "checking":
+                navigate("/checking");
+                break;
+              case "repairing":
+                navigate("/repairing");
+                break;
+              case "packing":
+                navigate("/packing");
+                break;
+              default:
+                navigate("/winding");
+            }
+          }
         });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage);
+        console.log("User is not registered");
       });
   };
   // const handleRegisterUser = () => {
@@ -72,6 +102,7 @@ const Login = () => {
             type="email"
             placeholder="email"
             value={email}
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -81,6 +112,7 @@ const Login = () => {
             type="password"
             placeholder="password"
             value={password}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>

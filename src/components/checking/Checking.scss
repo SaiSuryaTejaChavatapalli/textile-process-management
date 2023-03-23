@@ -1,0 +1,35 @@
+.checking-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    h1 {
+      color: white;
+    }
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+      label {
+        text-align: left;
+        color: white;
+        margin-right: 10px;
+      }
+      input {
+        text-align: right;
+      }
+      div {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}

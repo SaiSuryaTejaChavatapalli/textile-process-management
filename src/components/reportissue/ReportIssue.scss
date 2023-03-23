@@ -1,0 +1,28 @@
+.report-issue {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    button {
+      text-align: center;
+    }
+  }
+  button {
+    text-align: center;
+  }
+}
+.success-msg {
+  color: green;
+  text-align: center;
+}
+.error-msg {
+  color: red;
+  text-align: center;
+}

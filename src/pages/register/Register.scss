@@ -1,10 +1,12 @@
 .register {
-  background-color: teal;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  h1 {
+    color: white;
+  }
   div {
     text-align: left;
     div {
@@ -17,6 +19,7 @@
       }
       label {
         margin-right: 10px;
+        color: white;
       }
       input {
         align-self: flex-end;

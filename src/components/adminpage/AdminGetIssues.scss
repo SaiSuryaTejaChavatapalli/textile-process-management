@@ -1,0 +1,33 @@
+.admin-get-issues {
+  > button {
+    width: 150px;
+    background-color: purple;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  ul {
+    li {
+      list-style-type: none;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      button {
+        margin-left: 20px;
+        padding: 5px;
+      }
+      > span {
+        border: solid 1px black;
+        padding: 5px;
+        width: 70%;
+        > span {
+          font-weight: 500;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+.hide-get-issues {
+  display: none;
+}

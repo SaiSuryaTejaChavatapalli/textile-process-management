@@ -8,10 +8,8 @@ const RegisterForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [nationality, setNationality] = useState("");
+
+  const [department, setDepartment] = useState("");
   const [error, setError] = useState("");
   const [userCreated, setUserCreated] = useState(false);
   const [isAdmin, setIsAdmin] = useState("yes");
@@ -31,10 +29,7 @@ const RegisterForm = () => {
       await set(ref(database, `users/${userId}`), {
         name,
         email,
-        phone,
-        age,
-        gender,
-        nationality,
+        department,
         isAdmin,
       });
       console.log("User data saved successfully.");
@@ -50,7 +45,7 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleRegister} className="register">
-      <h2>Register</h2>
+      <h1>Register</h1>
       {error && <div>{error}</div>}
       <div>
         <div>
@@ -79,7 +74,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <label htmlFor="name">
-            {isAdmin === "yes" ? "Admin" : "User"} Name:
+            {isAdmin === "yes" ? "Admin" : "Worker"} Name:
           </label>
           <input
             type="text"
@@ -91,7 +86,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <label htmlFor="email">
-            {isAdmin === "yes" ? "Admin" : "User"} Email:
+            {isAdmin === "yes" ? "Admin" : "Worker"} Email:
           </label>
           <input
             type="email"
@@ -103,7 +98,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <label htmlFor="password">
-            {isAdmin === "yes" ? "Admin" : "User"} Password:
+            {isAdmin === "yes" ? "Admin" : "Worker"} Password:
           </label>
           <input
             type="password"
@@ -113,59 +108,28 @@ const RegisterForm = () => {
             required
           />
         </div>
+
         <div>
-          <label htmlFor="phone">
-            {isAdmin === "yes" ? "Admin" : "User"} Phone Number:
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="age">
-            {isAdmin === "yes" ? "Admin" : "User"} Age:
-          </label>
-          <input
-            type="number"
-            id="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="gender">
-            {isAdmin === "yes" ? "Admin" : "User"} Gender:
+          <label htmlFor="department">
+            {isAdmin === "yes" ? "Admin" : "Worker"} Department:
           </label>
           <select
-            id="gender"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
+            id="department"
+            value={department}
+            onChange={(e) => setDepartment(e.target.value)}
             required
           >
             <option value="">
-              Select {isAdmin === "yes" ? "Admin" : "User"} Gender
+              Select {isAdmin === "yes" ? "Admin" : "Worker"} Depot
             </option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="yarnstorage">Yarn Storage</option>
+            <option value="winding">Winding/Creeling</option>
+            <option value="warping">Warping</option>
+            <option value="looming">Looming</option>
+            <option value="checking">Checking</option>
+            <option value="repairing">Repairing</option>
+            <option value="packaging">Packaging</option>
           </select>
-        </div>
-        <div>
-          <label htmlFor="nationality">
-            {isAdmin === "yes" ? "Admin" : "User"} Nationality:
-          </label>
-          <input
-            type="text"
-            id="nationality"
-            value={nationality}
-            onChange={(e) => setNationality(e.target.value)}
-            required
-          />
         </div>
       </div>
       <div>

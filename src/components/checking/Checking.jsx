@@ -36,12 +36,13 @@ function Checking() {
     event.preventDefault();
     // Logic to report to supervisor
   };
-  console.log({
+  const formData = {
     date,
     loom,
     worker,
     defects,
-  });
+  };
+  console.log(formData);
   return (
     <div className="checking-form">
       <form onSubmit={handleSubmit}>
@@ -118,7 +119,7 @@ function Checking() {
           </button>
         </div>
         <div>
-          <button type="submit">Report to supervisor</button>
+          <button type="submit">Submit</button>
         </div>
         <div>
           <button onClick={handleReportIssueBtn}>Report an Issue</button>

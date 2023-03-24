@@ -42,7 +42,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Warping.scss";
-
+import Tracking from "../tracking/Tracking";
 const Warping = () => {
   const navigate = useNavigate();
   const { dispatch } = useContext(AuthContext);
@@ -112,6 +112,7 @@ const Warping = () => {
         </div>
         {isHide && <ReportIssue department="warping" />}
       </form>
+      <Tracking id="3" />
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>

@@ -41,6 +41,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Packing.scss";
+import Tracking from "../tracking/Tracking";
 
 const Packing = () => {
   const navigate = useNavigate();
@@ -113,6 +114,7 @@ const Packing = () => {
         </div>
         {isHide && <ReportIssue department="packing" />}
       </form>
+      <Tracking id="7" />
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>

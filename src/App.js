@@ -13,6 +13,7 @@ import YarnStorage from "./components/yarnstorage/YarnStorage";
 import Winding from "./components/winding/Winding";
 import Repairing from "./components/repairing/Repairing";
 import Packing from "./components/packing/Packing";
+import Tracking from "./components/tracking/Tracking";
 //-----------
 
 function App() {
@@ -40,6 +41,14 @@ function App() {
               element={
                 <RequireAuth>
                   <AdminPage />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="tracking"
+              element={
+                <RequireAuth>
+                  <Tracking id="2" />
                 </RequireAuth>
               }
             />
@@ -100,6 +109,7 @@ function App() {
               }
             />
           </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

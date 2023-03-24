@@ -78,6 +78,7 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
+import Tracking from "../tracking/Tracking";
 import "./Winding.scss";
 
 const Winding = () => {
@@ -226,6 +227,7 @@ const Winding = () => {
         </div>
         {isHide && <ReportIssue department="winding" />}
       </form>
+      <Tracking id="2" />
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>

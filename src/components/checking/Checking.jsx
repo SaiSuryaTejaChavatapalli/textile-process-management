@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Checking.scss";
+import Tracking from "../tracking/Tracking";
 const defectsInitialState = [
   { defect: "", points: "", grade: "", repairable: "" },
 ];
@@ -134,6 +135,7 @@ function Checking() {
         </div>
         {isHide && <ReportIssue department="checking" />}
       </form>
+      <Tracking id="5" />
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>

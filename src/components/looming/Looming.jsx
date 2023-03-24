@@ -108,6 +108,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Looming.scss";
+import Tracking from "../tracking/Tracking";
 
 const Looming = () => {
   const navigate = useNavigate();
@@ -324,6 +325,7 @@ const Looming = () => {
         Report an issue with the loom
       </button>
       {isHide && <ReportIssue />}
+      <Tracking id="4" />
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>

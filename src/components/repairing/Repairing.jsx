@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Repairing.scss";
+import Tracking from "../tracking/Tracking";
 
 const Repairing = () => {
   const navigate = useNavigate();
@@ -96,6 +97,7 @@ const Repairing = () => {
         </div>
         {isHide && <ReportIssue department="repairing" />}
       </form>
+      <Tracking id="6" />
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>

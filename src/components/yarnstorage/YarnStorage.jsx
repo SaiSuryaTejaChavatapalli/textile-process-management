@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 
 import "./YarnStorage.scss";
+import Tracking from "../tracking/Tracking";
 //---------------
 //--------------
 const YarnStorage = () => {
@@ -79,6 +80,7 @@ const YarnStorage = () => {
         </div>
         {isHide && <ReportIssue department="yarnstorage" />}
       </form>
+      <Tracking id="1" />
       <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>

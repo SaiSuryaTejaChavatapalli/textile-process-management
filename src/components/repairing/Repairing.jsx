@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Repairing.scss";
 
 const Repairing = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     date: "",
     repairingMachine: "",
@@ -30,6 +34,10 @@ const Repairing = () => {
     // Call API or do anything with the form data here
   };
   console.log(formData);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
   return (
     <div className="repairing-form">
       <form className="user-form" onSubmit={handleSubmit}>
@@ -88,6 +96,9 @@ const Repairing = () => {
         </div>
         {isHide && <ReportIssue department="repairing" />}
       </form>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };

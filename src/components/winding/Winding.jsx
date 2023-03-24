@@ -74,11 +74,15 @@
 
 // export default Winding;
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Winding.scss";
 
 const Winding = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   const [isHide, setHide] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -110,6 +114,11 @@ const Winding = () => {
     // code to submit form data
   };
   console.log(formData);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
+
   return (
     <div className="winding-form">
       <form onSubmit={handleSubmit}>
@@ -217,6 +226,9 @@ const Winding = () => {
         </div>
         {isHide && <ReportIssue department="winding" />}
       </form>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };

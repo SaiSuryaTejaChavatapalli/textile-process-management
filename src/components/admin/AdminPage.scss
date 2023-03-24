@@ -1,6 +1,7 @@
 .adminpage {
   display: flex;
   background-image: url("../../images/background.png");
+  background-size: cover;
   div {
     nav {
       padding-top: 10px;
@@ -14,7 +15,7 @@
   .layout {
     background-color: rgba(36, 41, 41, 0.552);
     padding: 16px;
-    height: 100vh;
+    height: 100%;
     flex: 1;
   }
   .admincompcontainer {

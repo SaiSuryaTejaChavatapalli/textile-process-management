@@ -14,7 +14,7 @@ import AdminLoomAnalysis from "./admincomponents/AdminLoomAnalysis";
 import AdminShiftAnalysis from "./admincomponents/AdminShiftAnalysis";
 const AdminPage = () => {
   const [adminComp, setAdminComp] = useState("home");
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleRegisterUser = () => {
     navigate("/registeruser");
@@ -23,12 +23,13 @@ const AdminPage = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/login");
   };
-
+  console.log(currentUser);
   return (
     <div className="adminpage">
       <div className="layout">
         <nav>
           <ul>
+            <li className="tpms-logo">TPMS</li>
             <li onClick={() => setAdminComp("home")}>Home</li>
             <li onClick={() => setAdminComp("orderdetails")}>Order Details</li>
             <li onClick={() => setAdminComp("jobdetails")}>Job Card Details</li>
@@ -72,19 +73,24 @@ const AdminPage = () => {
           {adminComp === "issues" && <AdminGetIssues />}
         </div>
       </div>
+      <div>
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 };
 
 export default AdminPage;
 
-{
-  /* <h1>Welcome to AdminPage</h1>
-<button type="button" onClick={handleRegisterUser}>
-  Register an Account
-</button>
-<div>
-  <button onClick={handleLogout}>Logout</button>
-</div>
-<AdminGetIssues /> */
-}
+// {
+//   /* <h1>Welcome to AdminPage</h1>
+// <button type="button" onClick={handleRegisterUser}>
+//   Register an Account
+// </button>
+// <div>
+//   <button onClick={handleLogout}>Logout</button>
+// </div>
+// <AdminGetIssues /> */
+// }

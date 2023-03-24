@@ -6,4 +6,8 @@
   background-image: url("../../images/background.png");
   background-size: cover;
   height: 100vh;
+  overflow-y: scroll;
+  form {
+    margin-bottom: 10px;
+  }
 }

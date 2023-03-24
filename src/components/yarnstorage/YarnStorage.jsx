@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
-import "./YarnStorage.scss";
 
+import "./YarnStorage.scss";
+//---------------
+//--------------
 const YarnStorage = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   const [isHide, setHide] = useState(false);
   const [formData, setFormData] = useState({
     received: "",
@@ -28,6 +34,11 @@ const YarnStorage = () => {
     setHide(!isHide);
   };
   console.log(formData);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
+
   return (
     <div className="yarnstorage-form">
       <form onSubmit={handleSubmit}>
@@ -68,6 +79,9 @@ const YarnStorage = () => {
         </div>
         {isHide && <ReportIssue department="yarnstorage" />}
       </form>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };

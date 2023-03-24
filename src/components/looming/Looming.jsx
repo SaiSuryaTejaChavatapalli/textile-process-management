@@ -103,12 +103,15 @@
 // };
 
 // export default Looming;
-
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Looming.scss";
 
 const Looming = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   // State object for the looming form
   const [loomingForm, setLoomingForm] = useState({
     yarnReceived: "",
@@ -166,6 +169,10 @@ const Looming = () => {
   };
   console.log(loomingForm);
   console.log(downtimeForm);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
   return (
     <div className="looming-form">
       <form onSubmit={handleLoomingFormSubmit}>
@@ -317,6 +324,9 @@ const Looming = () => {
         Report an issue with the loom
       </button>
       {isHide && <ReportIssue />}
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };

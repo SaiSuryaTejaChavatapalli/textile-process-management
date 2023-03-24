@@ -36,12 +36,15 @@
 // };
 
 // export default Packing;
-
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Packing.scss";
 
 const Packing = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   const [isHide, setHide] = useState(false);
   const [formState, setFormState] = useState({
     packageDefects: "",
@@ -65,6 +68,10 @@ const Packing = () => {
     setHide(!isHide);
   };
   console.log(formState);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
   return (
     <div className="packing-form">
       <form className="user-form">
@@ -106,6 +113,9 @@ const Packing = () => {
         </div>
         {isHide && <ReportIssue department="packing" />}
       </form>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };

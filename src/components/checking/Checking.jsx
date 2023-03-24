@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Checking.scss";
 const defectsInitialState = [
@@ -6,6 +8,8 @@ const defectsInitialState = [
 ];
 
 function Checking() {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   const [isHide, setHide] = useState(false);
   const handleReportIssueBtn = (e) => {
     e.preventDefault();
@@ -43,6 +47,10 @@ function Checking() {
     defects,
   };
   console.log(formData);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
   return (
     <div className="checking-form">
       <form onSubmit={handleSubmit}>
@@ -126,6 +134,9 @@ function Checking() {
         </div>
         {isHide && <ReportIssue department="checking" />}
       </form>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 }

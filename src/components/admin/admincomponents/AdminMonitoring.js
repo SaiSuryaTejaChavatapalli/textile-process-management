@@ -11,25 +11,25 @@ const AdminMonitoring = () => {
   return (
     <div className="monitoring">
       <CardsProcess
-        id=""
+        id="1"
         header="1. Yarn Storage"
         processcolour="success"
         status="Completed"
       />
       <CardsProcess
-        id=""
+        id="2"
         header="2. Winding/Creeling"
         processcolour="danger"
         status="Error"
       />
       <CardsProcess
-        id=""
+        id="3"
         header="3. Warping"
         processcolour="secondary"
         status="Not Started"
       />
       <CardsProcess
-        id=""
+        id="4"
         header="4. Looming"
         processcolour="secondary"
         status="Not Started"

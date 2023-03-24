@@ -37,12 +37,15 @@
 // };
 
 // export default Warping;
-
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 import ReportIssue from "../reportissue/ReportIssue";
 import "./Warping.scss";
 
 const Warping = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   const [isHide, setHide] = useState(false);
   const [formState, setFormState] = useState({
     finalWeight: "",
@@ -61,6 +64,10 @@ const Warping = () => {
     setHide(!isHide);
   };
   console.log(formState);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
   return (
     <div className="warping-form">
       <form>
@@ -105,6 +112,9 @@ const Warping = () => {
         </div>
         {isHide && <ReportIssue department="warping" />}
       </form>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };

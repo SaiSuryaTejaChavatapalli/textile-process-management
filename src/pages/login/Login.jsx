@@ -61,7 +61,7 @@ const Login = () => {
               case "repairing":
                 navigate("/repairing");
                 break;
-              case "packing":
+              case "packaging":
                 navigate("/packing");
                 break;
               default:

@@ -30,19 +30,20 @@ const AdminPage = () => {
         <nav>
           <ul>
             <li className="tpms-logo">TPMS</li>
-            <li onClick={() => setAdminComp("home")}>Home</li>
-            <li onClick={() => setAdminComp("orderdetails")}>Order Details</li>
+            {/* <li onClick={() => setAdminComp("home")}>Home</li> */}
+            <li onClick={() => setAdminComp("orderdetails")}>Create Order</li>
             <li onClick={() => setAdminComp("jobdetails")}>Job Card Details</li>
-            <li onClick={() => setAdminComp("loomloading")}>
-              Loom Loading Chart
-            </li>
+
             <li onClick={() => setAdminComp("registration")}>Registration</li>
             <li onClick={() => setAdminComp("monitoring")}>Monitoring</li>
+            <li onClick={() => setAdminComp("issues")}>View Worker Issues</li>
             <li onClick={() => setAdminComp("loomanalysis")}>Loom Analysis</li>
             <li onClick={() => setAdminComp("shiftanalysis")}>
               Shift Analysis
             </li>
-            <li onClick={() => setAdminComp("issues")}>View Worker Issues</li>
+            <li onClick={() => setAdminComp("loomloading")}>
+              Loom Loading Chart
+            </li>
           </ul>
         </nav>
       </div>
